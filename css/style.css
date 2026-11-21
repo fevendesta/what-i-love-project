@@ -486,7 +486,7 @@ button:hover {
 }
 
 
-/* tablets */
+/* for tablets */
 @media screen and (max-width: 1024px) {
   header {
     padding: 15px 25px;
@@ -505,7 +505,7 @@ button:hover {
   }
 }
 
-/* phones */
+/* for phones */
 @media screen and (max-width: 600px) {
   header {
     flex-direction: column; /* name above the nav */
