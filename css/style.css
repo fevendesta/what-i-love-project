@@ -73,7 +73,7 @@ nav a.active {
 
 /* hero (picture section) */
 .hero {
-  background-image: url("images/hero.jpg");
+  background-image: url("../images/hero.jpg"); /* ../ goes up out of the css folder */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -262,6 +262,10 @@ footer a:hover {
 }
 .about a:active {
   color: #3b2f2f;
+}
+
+.about p a {
+  display: inline; /* links stay inline with the text */
 }
 
 /* "jump to" links as oval boxes */
