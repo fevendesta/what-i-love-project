@@ -1,0 +1,570 @@
+/* home page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding and border stay inside the width */
+}
+
+/* base style: Lato for body text, Playfair Display for headings */
+body {
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6; /* space between lines */
+  color: #3b2f2f; /* text color #1: dark brown */
+  background-color: #faf5ec;
+}
+
+h1, h2, h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  color: #8b4513; /* text color #2: warm brown */
+}
+
+/* header and navigation */
+header {
+  display: flex;
+  align-items: center; /* vertically centers my items */
+  padding: 15px 40px;
+  background: linear-gradient(to right, #5c3317, #8b4513);
+  position: sticky;
+  top: 0; /* stays at the top when scrolling */
+  z-index: 100;
+}
+
+header h1 {
+  color: #fdf6e3;
+  font-size: 1.8rem;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none; /* removes the underline */
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* link states: keep this order (L, V, H, A) */
+nav a:link {
+  color: #fdf6e3;
+}
+nav a:visited {
+  color: #fdf6e3;
+}
+nav a:hover {
+  background-color: #f4d58d;
+  color: #5c3317;
+}
+nav a:active {
+  background-color: #d4a373;
+  color: #ffffff;
+}
+
+nav a.active {
+  border-bottom: 2px solid #f4d58d; /* shows which page I'm on */
+}
+
+/* hero (picture section) */
+.hero {
+  background-image: url("images/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px; /* gives the section its height */
+}
+
+.hero-box {
+  max-width: 600px;
+  margin: 0 auto; /* centers the panel */
+  padding: 40px;
+  background-color: rgba(250, 245, 236, 0.85); /* see-through cream panel */
+  text-align: left;
+}
+
+.hero .tagline {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero h2 {
+  color: #3b0203; /* dark red-brown */
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  color: #3b2f2f;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+/* button: a link styled like a button */
+.btn {
+  display: inline-block; /* flows like text, but accepts padding */
+  padding: 14px 32px;
+  background: linear-gradient(to right, #d4a373, #f4d58d);
+  color: #3b2f2f;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background: #5c3317;
+  color: #fdf6e3;
+}
+
+.btn::after {
+  content: "→"; /* arrow after the button text */
+  margin-left: 8px;
+}
+
+/* cards (What I love to read) */
+.features {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.features h2 {
+  margin-bottom: 30px;
+}
+
+.card-row {
+  display: flex; /* puts the cards in a row */
+  justify-content: center; /* main axis */
+  align-items: center; /* cross axis */
+  gap: 30px;
+}
+
+.card {
+  position: relative;
+  width: 280px;
+  height: 200px;
+  padding: 30px 25px;
+  margin: 10px;
+  border: 2px solid #d4a373;
+  border-radius: 30px; /* oval, rounded corners */
+  background-color: #e8d5c0;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: scale(1.05); /* grows on hover */
+  outline: 3px solid #f4d58d;
+}
+
+/* hero text slides in */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px); /* starts 40px above */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h2 {
+  animation: slideDown 1s ease;
+}
+
+.hero p {
+  animation: slideDown 1s ease 0.5s both; /* starts half a second later */
+}
+
+/* footer */
+footer {
+  padding: 30px 40px;
+  background: linear-gradient(to right, #5c3317, #8b4513);
+  color: #fdf6e3;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+
+footer a {
+  color: #fdf6e3;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #f4d58d;
+}
+
+
+/* about page */
+.about {
+  padding: 60px 40px;
+}
+
+.about h2 {
+  margin-bottom: 15px;
+}
+
+.about p {
+  margin-bottom: 10px; /* the reset removed paragraph spacing */
+}
+
+.about section {
+  margin-top: 40px;
+  scroll-margin-top: 90px; /* keeps titles clear of the sticky header */
+}
+
+.about h3 {
+  margin-bottom: 10px;
+}
+
+.about ul {
+  list-style-type: square;
+  padding-left: 30px; /* the reset removed the indent */
+}
+
+.about ol {
+  list-style-type: decimal;
+  padding-left: 30px;
+}
+
+.about li {
+  margin-bottom: 8px;
+}
+
+/* about links: L, V, H, A */
+.about a:link {
+  color: #8b4513;
+}
+.about a:visited {
+  color: #5c3317;
+}
+.about a:hover {
+  color: #d4a373;
+  text-decoration: none;
+}
+.about a:active {
+  color: #3b2f2f;
+}
+
+/* "jump to" links as oval boxes */
+.about .on-page a {
+  display: inline-block;
+  margin: 10px 8px 0 0;
+  padding: 8px 20px;
+  border: 2px solid #d4a373;
+  border-radius: 30px; /* the oval shape */
+  background-color: #e8d5c0;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.about .on-page a:link {
+  color: #5c3317;
+}
+.about .on-page a:visited {
+  color: #5c3317;
+}
+.about .on-page a:hover {
+  background-color: #8b4513;
+  color: #fdf6e3;
+}
+.about .on-page a:active {
+  background-color: #5c3317;
+  color: #ffffff;
+}
+
+/* table */
+table {
+  width: 100%;
+  border-collapse: collapse; /* merges cell borders into one line */
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #d4a373;
+  text-align: center;
+}
+
+thead th {
+  background-color: #8b4513;
+  color: #fdf6e3;
+}
+
+
+/* gallery page */
+.gallery-page {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.gallery-page h2 {
+  margin-bottom: 30px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 10px;
+}
+
+.book img {
+  display: block;
+  width: 60%;
+  margin: 0 auto; /* centers the image */
+}
+
+.book a {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 700;
+  color: #8b4513;
+  transition: color 0.3s ease;
+}
+
+.book a:hover {
+  color: #d4a373;
+}
+
+
+/* contact page */
+.contact-page {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.contact-page h2 {
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+}
+
+.contact-page p {
+  margin-bottom: 10px;
+}
+
+form {
+  position: relative; /* reference point for the badge */
+  max-width: 600px;
+  margin: 50px auto 0; /* centered on the page */
+  padding: 40px 30px 30px;
+  background-color: #ffffff;
+  border: 2px solid #d4a373;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(92, 51, 23, 0.15);
+  text-align: left;
+}
+
+/* badge on the form corner (absolute inside relative) */
+form::before {
+  content: "Readers are Leaders!!!";
+  position: absolute;
+  top: -16px;
+  right: 30px;
+  z-index: 2; /* sits above the form border */
+  background: linear-gradient(to right, #5c3317, #8b4513);
+  color: #fdf6e3;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+form > label {
+  display: block; /* one label per line */
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #5c3317;
+}
+
+.contact-page .group-title {
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #5c3317;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 22px;
+  border: 2px solid #d4a373;
+  border-radius: 15px;
+  background-color: #faf5ec;
+  font-family: "Lato", Arial, sans-serif; /* fields don't inherit the font by default */
+  font-size: 1rem;
+  color: #3b2f2f;
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea {
+  resize: vertical; /* can only stretch up and down */
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover,
+textarea:hover {
+  border-color: #8b4513;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #5c3317;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.4); /* glow ring when clicked into */
+}
+
+.options {
+  margin-bottom: 22px;
+}
+
+.options input {
+  accent-color: #8b4513; /* brown radios and checkboxes */
+  margin-right: 4px;
+}
+
+.options label {
+  display: inline-block;
+  margin-right: 18px;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 22px;
+  accent-color: #8b4513;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #5c3317, #8b4513);
+  color: #fdf6e3;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button i {
+  margin-right: 6px; /* space between icon and text */
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(92, 51, 23, 0.3);
+}
+
+
+/* tablets */
+@media screen and (max-width: 1024px) {
+  header {
+    padding: 15px 25px;
+  }
+
+  .hero h2 {
+    font-size: 2.2rem; /* smaller heading */
+  }
+
+  .card-row {
+    flex-wrap: wrap; /* cards drop to a new line */
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 */
+  }
+}
+
+/* phones */
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column; /* name above the nav */
+    gap: 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero-box {
+    padding: 25px;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero .tagline {
+    display: none; /* hidden on small screens */
+  }
+
+  .features,
+  .about,
+  .gallery-page,
+  .contact-page {
+    padding: 40px 20px;
+  }
+
+  .card-row {
+    flex-direction: column; /* cards stack */
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr; /* 1 column */
+  }
+
+  .book img {
+    width: 100%;
+  }
+
+  th, td {
+    padding: 8px 6px;
+    font-size: 0.85rem; /* the table fits on small screens */
+  }
+
+  form {
+    padding: 35px 20px 25px;
+  }
+
+  .footer-links {
+    flex-direction: column; /* footer links stack */
+    gap: 10px;
+  }
+}
